@@ -72,7 +72,7 @@ export const JobProvider = ({ children }) => {
 
       setJobs((prev) => [data.data, ...prev]);
 
-      toast.success("Job posted successfully!");
+      toast.success("Job posted Added successfully!");
 
       return data.data;
     } catch (err) {
@@ -97,7 +97,7 @@ export const JobProvider = ({ children }) => {
 
       setJobs((prev) => prev.filter((job) => job._id !== jobId));
 
-      toast.success("Job deleted successfully!");
+      toast.success("Job Post deleted successfully!");
 
       return data.data;
     } catch (err) {
