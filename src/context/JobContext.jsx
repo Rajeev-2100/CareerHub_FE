@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { toast } from "react-toastify";
 
 const JobContext = createContext();
 
@@ -26,6 +27,7 @@ export const JobProvider = ({ children }) => {
       return data.data;
     } catch (err) {
       setError(err.message);
+      toast.error(err.message);
       console.error(err);
       return [];
     } finally {
@@ -45,6 +47,7 @@ export const JobProvider = ({ children }) => {
 
       return data.data;
     } catch (err) {
+      toast.error(err.message);
       console.error(err);
       throw err;
     }
@@ -69,9 +72,12 @@ export const JobProvider = ({ children }) => {
 
       setJobs((prev) => [data.data, ...prev]);
 
+      toast.success("Job posted successfully!");
+
       return data.data;
     } catch (err) {
-      console.error("Add Job Error:", err);
+      toast.error(err.message);
+      console.error(err);
       throw err;
     }
   };
@@ -91,8 +97,11 @@ export const JobProvider = ({ children }) => {
 
       setJobs((prev) => prev.filter((job) => job._id !== jobId));
 
+      toast.success("Job deleted successfully!");
+
       return data.data;
     } catch (err) {
+      toast.error(err.message);
       console.error(err);
       throw err;
     }
@@ -116,13 +125,14 @@ export const JobProvider = ({ children }) => {
       }
 
       setJobs((prev) =>
-        prev.map((job) =>
-          job._id === jobId ? data.data : job
-        )
+        prev.map((job) => (job._id === jobId ? data.data : job))
       );
+
+      toast.success("Job updated successfully!");
 
       return data.data;
     } catch (err) {
+      toast.error(err.message);
       console.error(err);
       throw err;
     }

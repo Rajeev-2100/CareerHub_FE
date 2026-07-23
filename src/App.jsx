@@ -15,15 +15,13 @@ function App() {
 
   useEffect(() => {
     const filtered = jobs.filter((job) =>
-      job.jobTitle?.toLowerCase().includes(searchTerm.toLowerCase())
+      job.jobTitle?.toLowerCase().includes(searchTerm.toLowerCase()),
     );
     setFilteredJobs(filtered);
   }, [jobs, searchTerm]);
 
   const handleDelete = async (id) => {
-    if (window.confirm("Delete this job?")) {
-      await deleteJob(id);
-    }
+    await deleteJob(id);
   };
 
   return (
@@ -85,7 +83,6 @@ function App() {
           )}
         </div>
       </main>
-
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import Header from "../components/Header";
 import JobContext from "../context/JobContext";
+import { toast } from "react-toastify";
 
 const PostingJobPage = () => {
   const { addJob } = useContext(JobContext);
@@ -37,7 +38,7 @@ const PostingJobPage = () => {
     try {
       await addJob(jobData);
 
-      alert("Job posted successfully!");
+      toast.success("Job posted successfully!");
 
       setJobData({
         jobTitle: "",
@@ -49,7 +50,7 @@ const PostingJobPage = () => {
         qualification: "",
       });
     } catch (error) {
-      alert(error.message);
+      toast.error(error.message);
     }
   };
 
