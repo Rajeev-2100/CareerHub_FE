@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 const JobContext = createContext();
 
-const API_BASE_URL = "http://localhost:3001/api";
+const API_BASE_URL = "https://career-hub-wheat-two.vercel.app/api";
 
 export const JobProvider = ({ children }) => {
   const [jobs, setJobs] = useState([]);
