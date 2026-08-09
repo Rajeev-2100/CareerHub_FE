@@ -1,16 +1,42 @@
-# React + Vite
+# Job Posting App - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+This is the frontend user interface for the Job Posting App. It is built with a modern web stack utilizing [React](https://react.dev/), [Vite](https://vitejs.dev/), and [Bootstrap](https://getbootstrap.com/) for a responsive design.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js installed on your local machine
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-## Expanding the Oxlint configuration
+2. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+   The development server will typically start on `http://localhost:5173`. Open this URL in your browser to view the application.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+3. **Build for production:**
+   ```bash
+   npm run build
+   ```
+   This will generate a `dist` folder containing the compiled static assets, ready for deployment.
+
+## Technologies & Libraries Used
+
+- **React (v19)**: The core JavaScript library for building the UI.
+- **Vite**: A lightning-fast build tool and development server.
+- **React Router DOM**: For handling navigation and routing within the Single Page Application.
+- **Bootstrap**: For pre-styled, responsive CSS UI components.
+- **React Toastify**: For displaying interactive, elegant notifications and alerts.
+- **Oxlint**: A highly performant linter used to ensure code quality.
+
+## Available Scripts
+
+- `npm run dev`: Starts the Vite development server with Hot Module Replacement (HMR).
+- `npm run build`: Bundles the application for production.
+- `npm run preview`: Boots up a local static web server that serves the production build.
+- `npm run lint`: Runs Oxlint to check for code issues.
