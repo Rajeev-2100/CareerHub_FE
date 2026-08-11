@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 const JobContext = createContext();
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3001/api";
+const API_BASE_URL = "https://career-hub-wheat-two.vercel.app";
 
 export const JobProvider = ({ children }) => {
   const [jobs, setJobs] = useState([]);
@@ -23,8 +23,8 @@ export const JobProvider = ({ children }) => {
         throw new Error(data.error || "Failed to fetch jobs");
       }
 
-      setJobs(data.data);
-      return data.data;
+      setJobs(data?.data);
+      return data?.data;
     } catch (err) {
       setError(err.message);
       toast.error(err.message);
@@ -45,7 +45,7 @@ export const JobProvider = ({ children }) => {
         throw new Error(data.error || "Failed to fetch job");
       }
 
-      return data.data;
+      return data?.data;
     } catch (err) {
       toast.error(err.message);
       console.error(err);
@@ -70,11 +70,11 @@ export const JobProvider = ({ children }) => {
         throw new Error(data.error || "Failed to add job");
       }
 
-      setJobs((prev) => [data.data, ...prev]);
+      setJobs((prev) => [data?.data, ...prev]);
 
       toast.success("Job posted Added successfully!");
 
-      return data.data;
+      return data?.data;
     } catch (err) {
       toast.error(err.message);
       console.error(err);
@@ -125,12 +125,12 @@ export const JobProvider = ({ children }) => {
       }
 
       setJobs((prev) =>
-        prev.map((job) => (job._id === jobId ? data.data : job))
+        prev.map((job) => (job._id === jobId ? data?.data : job)),
       );
 
       toast.success("Job updated successfully!");
 
-      return data.data;
+      return data?.data;
     } catch (err) {
       toast.error(err.message);
       console.error(err);
