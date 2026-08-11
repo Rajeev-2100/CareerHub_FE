@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 const JobContext = createContext();
 
-const API_BASE_URL = "https://career-hub-wheat-two.vercel.app";
+const API_BASE_URL = "https://career-hub-wheat-two.vercel.app/api";
 
 export const JobProvider = ({ children }) => {
   const [jobs, setJobs] = useState([]);
@@ -18,6 +18,8 @@ export const JobProvider = ({ children }) => {
 
       const response = await fetch(`${API_BASE_URL}/all-job`);
       const data = await response.json();
+
+      console.log("Data:", data);
 
       if (!response.ok) {
         throw new Error(data.error || "Failed to fetch jobs");
